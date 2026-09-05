@@ -1,0 +1,80 @@
+include:
+  # use template for all stages 
+  - project: "OE-7035/ssz-da/templates/pipeline-templates"
+    ref: v1.1.4
+    file: "stages.yml"
+  # use template for gitlab pipeline to deploy to shinyapps.io
+  - project: "OE-7035/ssz-da/templates/pipeline-templates"
+    ref: v1.1.4
+    file: "deploy-to-shinyapps.yml"
+  # use template for gitlab pipeline to check and build
+  - project: "OE-7035/ssz-da/templates/pipeline-templates"
+    ref: v1.1.4
+    file: "r-check-and-build-packages.yml"
+  # use template for gitlab pipeline to push main to github 
+  - project: "OE-7035/ssz-da/templates/pipeline-templates"
+    ref: v1.1.4
+    file: "publish-to-github.yml"
+  
+# Template jobs to deal with Velo vs. MIV  
+.velo-deploy:
+  script:
+    - cp dev/config-velo.yml inst/golem-config.yml
+    - Rscript -e "source('data-raw/create_latest_data.R')"
+
+.miv-deploy:
+  script:
+    - cp dev/config-miv.yml inst/golem-config.yml
+    - Rscript -e "source('data-raw/create_latest_data.R')"
+
+# INT deployments ------------------------------------
+velo-shiny-deploy-int:
+  extends:
+    - .shiny-deploy-int
+    - .velo-deploy
+  variables:
+    APP_NAME: "verkehrsz-velo-int"
+  script:
+    - !reference [.velo-deploy, script]
+    - !reference [.shiny-deploy-int, script]
+    
+miv-shiny-deploy-int:
+  extends:
+    - .shiny-deploy-int
+    - .miv-deploy
+  variables:
+    APP_NAME: "verkehrsz-miv-int"
+  script:
+    - !reference [.miv-deploy, script]
+    - !reference [.shiny-deploy-int, script]
+
+# tests
+r-testthat-test:
+  extends: .r-testthat-test
+
+# PROD deployments --------------------------------------
+velo-shiny-deploy-prod:
+  extends:
+    - .shiny-deploy-prod
+    - .velo-deploy
+  variables:
+    APP_NAME: "verkehrsz-velo-prod"
+  script:
+    - !reference [.velo-deploy, script]
+    - !reference [.shiny-deploy-prod, script]
+    
+miv-shiny-deploy-prod:
+  extends:
+    - .shiny-deploy-prod
+    - .miv-deploy
+  variables:
+    APP_NAME: "verkehrsz-miv-prod"
+  script:
+    - !reference [.miv-deploy, script]
+    - !reference [.shiny-deploy-prod, script]
+
+# publish code to github
+publish-to-github-orphan:
+  extends:
+    - .publish-to-github-orphan
+    
