@@ -1,0 +1,14 @@
+# Achtung, wenn in diesem File Änderungen gemacht werden, müssen sie auch in
+# inst/golem-config.yml gemacht werden!
+
+default:
+  golem_name: verkehrszaehlungen
+  golem_version: 0.0.0.9000
+  app_prod: no
+  app_type: velo
+  fahrzeug_sg: Velo
+  fahrzeug_pl: Velos
+  read_fct: read_velo_data
+  wrangle_fct: prep_velo_data
+  link_ogd_location: https://data.stadt-zuerich.ch/dataset/geo_standorte_der_automatischen_fuss__und_velozaehlungen
+  link_ogd_count: https://data.stadt-zuerich.ch/dataset/ted_taz_verkehrszaehlungen_werte_fussgaenger_velo

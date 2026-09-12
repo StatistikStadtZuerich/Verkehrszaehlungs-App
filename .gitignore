@@ -1,0 +1,12 @@
+.Rproj.user
+.Rhistory
+.RData
+.Ruserdata
+.Rdata
+R/sysdata.rda
+.httr-oauth
+.DS_Store
+.quarto
+# {shinytest2}: Ignore new debug snapshots for `$expect_values()`
+*_.new.png
+node_modules
