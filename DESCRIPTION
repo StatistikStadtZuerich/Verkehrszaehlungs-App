@@ -1,0 +1,66 @@
+Package: verkehrszaehlungen
+Title: Count of cars/bikes at selected stations in the city of Zurich
+Version: 0.0.0.9000
+Authors@R: 
+    c(
+    person("Sara",
+      "Hänzi",
+      role = c("aut", "cre"),
+      email = "sara.haenzi@zuerich.ch"),
+    person("Statistik Stadt Zürich",
+      email = "statistik@zuerich.ch",
+      role = c("cph", "fnd")
+    ))
+Description: Showing aggregate data, variant for cars or bikes.
+License: MIT + file LICENSE
+Imports: 
+    bslib,
+    config (>= 0.3.2),
+    data.table,
+    dplyr,
+    ggiraph,
+    ggpattern,
+    ggplot2,
+    glue,
+    golem (>= 0.4.1),
+    here,
+    hms,
+    icons (>= 0.2.0),
+    janitor,
+    jsonlite,
+    lubridate,
+    mapgl,
+    pkgload,
+    purrr,
+    reactable,
+    scales,
+    sf,
+    shiny (>= 1.9.1),
+    shinycssloaders,
+    shinyjs,
+    shinyWidgets,
+    showtext,
+    sszvz,
+    sysfonts,
+    systemfonts,
+    utils,
+    zuericolors,
+    zuericssstyle (>= 0.2.1),
+    zueritheme
+Encoding: UTF-8
+LazyData: true
+RoxygenNote: 7.3.3
+Suggests: 
+    shinytest2,
+    spelling,
+    testthat (>= 3.0.0)
+Config/testthat/edition: 3
+Language: en-US
+Depends: 
+    R (>= 3.5)
+Remotes: 
+    github::StatistikStadtZuerich/sszvz-Verkehrszaehlungen,
+    github::StatistikStadtZuerich/zuericolors,
+    github::StatistikStadtZuerich/zuericssstyle,
+    github::StatistikStadtZuerich/zueritheme,
+    github::mitchelloharawild/icons
