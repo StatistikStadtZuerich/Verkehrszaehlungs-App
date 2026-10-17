@@ -1,0 +1,21 @@
+/* overwrite button-div behaviour and map height for tablets*/
+@media (min-width: 481px) and (max-width: 768px) {
+  .button-div {
+    align-items: flex-start;
+    flex-direction: row;
+  }
+  .maplibregl {
+    height: 400px !important ;
+  }
+}
+
+/* For screens 480px or smaller (small phones): even smaller map height */
+@media (max-width: 480px) {
+  .maplibregl {
+    height: 350px !important ;
+  }
+}
+
+
+
+
