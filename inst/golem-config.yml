@@ -1,0 +1,32 @@
+# Achtung, wenn in diesem File Änderungen gemacht werden, müssen sie auch in
+# den yml Files im dev Ordner gemacht werden!
+
+default:
+  golem_name: verkehrszaehlungen
+  golem_version: 0.0.0.9000
+  app_prod: no
+  app_type: velo
+  fahrzeug_sg: Velo
+  fahrzeug_pl: Velos
+  read_fct: read_velo_data
+  wrangle_fct: prep_velo_data
+  link_ogd_location: https://data.stadt-zuerich.ch/dataset/geo_standorte_der_automatischen_fuss__und_velozaehlungen
+  link_ogd_count: https://data.stadt-zuerich.ch/dataset/ted_taz_verkehrszaehlungen_werte_fussgaenger_velo
+
+velo:
+  app_type: velo
+  fahrzeug_sg: Velo
+  fahrzeug_pl: Velos
+  read_fct: read_velo_data
+  wrangle_fct: prep_velo_data
+  link_ogd_location: https://data.stadt-zuerich.ch/dataset/geo_standorte_der_automatischen_fuss__und_velozaehlungen
+  link_ogd_count: https://data.stadt-zuerich.ch/dataset/ted_taz_verkehrszaehlungen_werte_fussgaenger_velo
+  
+miv:
+  app_type: miv
+  fahrzeug_sg: Fahrzeug
+  fahrzeug_pl: Fahrzeuge
+  read_fct: read_miv_data
+  wrangle_fct: prep_miv_data
+  link_ogd_location: https://data.stadt-zuerich.ch/dataset/geo_standorte_der_verkehrszaehlungen_miv
+  link_ogd_count: https://data.stadt-zuerich.ch/dataset/sid_dav_verkehrszaehlung_miv_od2031
