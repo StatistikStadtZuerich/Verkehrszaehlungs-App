@@ -1,0 +1,14 @@
+# Achtung, wenn in diesem File Änderungen gemacht werden, müssen sie auch in
+# inst/golem-config.yml gemacht werden!
+
+default:
+  golem_name: verkehrszaehlungen
+  golem_version: 0.0.0.9000
+  app_prod: no
+  app_type: miv
+  fahrzeug_sg: Fahrzeug
+  fahrzeug_pl: Fahrzeuge
+  read_fct: read_miv_data
+  wrangle_fct: prep_miv_data
+  link_ogd_location: https://data.stadt-zuerich.ch/dataset/geo_standorte_der_verkehrszaehlungen_miv
+  link_ogd_count: https://data.stadt-zuerich.ch/dataset/sid_dav_verkehrszaehlung_miv_od2031
